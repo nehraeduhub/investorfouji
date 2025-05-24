@@ -39,7 +39,7 @@
     h2 {
       color: #003366;
     }
-    .features, .pricing {
+    .features, .pricing, .extra {
       display: flex;
       gap: 30px;
       flex-wrap: wrap;
@@ -78,6 +78,15 @@
       background: #001f3f;
       color: white;
       margin-top: 50px;
+    }
+    img.qr {
+      max-width: 200px;
+      height: auto;
+      display: block;
+      margin: 10px auto;
+    }
+    ul {
+      padding-left: 20px;
     }
   </style>
 </head>
@@ -130,6 +139,19 @@
           <li>Free weekly market analysis</li>
           <li>1-on-1 mentoring session</li>
         </ul>
+      </div>
+    </section>
+
+    <section class="section extra">
+      <div class="card">
+        <h2>Pay via QR Code</h2>
+        <p>Scan the QR code below to pay ₹2,999 directly and send payment proof to our WhatsApp.</p>
+        <img src="your-qr-code.png" alt="QR Code for Payment" class="qr">
+      </div>
+      <div class="card">
+        <h2>Join Weekly Zoom Class – ₹99 Only</h2>
+        <p>Every Saturday 7:00 PM | Special for New Investors</p>
+        <a href="https://yourpaymentlink.com/zoom" class="cta-button" target="_blank">Book ₹99 Zoom Class</a>
       </div>
     </section>
 
