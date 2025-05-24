@@ -12,21 +12,31 @@
       color: #333;
     }
     header {
-      background: linear-gradient(90deg, #001f3f, #0056b3);
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
       color: white;
-      padding: 20px 0;
-      text-align: center;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       border-bottom: 4px solid #ffcc00;
     }
     header h1 {
-      font-size: 2.5em;
+      font-size: 2em;
       margin: 0;
-      letter-spacing: 1px;
     }
     header p {
-      font-size: 1.1em;
-      color: #ffdd99;
-      margin-top: 10px;
+      font-size: 1em;
+      color: #e0e0e0;
+      margin: 5px 0 0;
+    }
+    .logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    .header-content {
+      flex: 1;
     }
     .container {
       padding: 30px;
@@ -66,7 +76,7 @@
     .cta-button:hover {
       background-color: #e65c00;
     }
-    form input {
+    form input, form select {
       width: 100%;
       padding: 10px;
       margin-bottom: 15px;
@@ -96,10 +106,6 @@
       border-radius: 50%;
       margin-bottom: 10px;
     }
-    .logo {
-      width: 100px;
-      margin: 10px auto;
-    }
     .qr-code {
       text-align: center;
       margin-top: 20px;
@@ -113,9 +119,11 @@
 <body>
 
   <header>
-    <img src="removebg.png" alt="Investor Fouji Logo" class="logo">
-    <h1>Investor Fouji</h1>
-    <p>Technical Stock Market Training for Soldiers & Smart Investors</p>
+    <img src="logo.png" alt="Investor Fouji Logo" class="logo">
+    <div class="header-content">
+      <h1>Investor Fouji</h1>
+      <p>Technical Stock Market Training for Soldiers & Smart Investors</p>
+    </div>
   </header>
 
   <div class="container">
@@ -181,29 +189,38 @@
         <input type="email" id="email" required>
         <label>Phone:</label>
         <input type="tel" id="phone" required>
+        <label>Payment Type:</label>
+        <select id="paymentType" required>
+          <option value="">Select Payment Method</option>
+          <option value="PhonePe">PhonePe</option>
+          <option value="Google Pay">Google Pay</option>
+          <option value="Paytm">Paytm</option>
+          <option value="Other">Other</option>
+        </select>
         <label>Upload Payment Screenshot:</label>
         <input type="file" name="screenshot" accept="image/*" required>
         <button type="submit" class="cta-button">Submit & Confirm</button>
       </form>
+
+      <div class="team">
+        <div class="team-member">
+          <img src="person1.jpg" alt="Team Member 1">
+          <p><strong>Rj Nehra</strong><br>7+ Years | ₹5L Trading Capital</p>
+        </div>
+        <div class="team-member">
+          <img src="person2.jpg" alt="Team Member 2">
+          <p><strong>Amit Kumar</strong><br>6+ Years | ₹3L Trading Capital</p>
+        </div>
+        <div class="team-member">
+          <img src="person3.jpg" alt="Team Member 3">
+          <p><strong>Suresh Singh</strong><br>8+ Years | ₹4L Trading Capital</p>
+        </div>
+      </div>
     </section>
 
   </div>
 
   <footer>
-    <div class="team">
-      <div class="team-member">
-        <img src="person1.jpg" alt="Team Member 1">
-        <p><strong>Rj Nehra</strong></p>
-      </div>
-      <div class="team-member">
-        <img src="person2.jpg" alt="Team Member 2">
-        <p><strong>Amit Kumar</strong></p>
-      </div>
-      <div class="team-member">
-        <img src="person3.jpg" alt="Team Member 3">
-        <p><strong>Suresh Singh</strong></p>
-      </div>
-    </div>
     <p>&copy; 2025 Investor Fouji | Powered by NehraEduHub</p>
   </footer>
 
@@ -212,7 +229,8 @@
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const phone = document.getElementById("phone").value.trim();
-      const message = `Hi, I am ${name}, Email: ${email}, Phone: ${phone}. I have submitted my details and payment for Investor Fouji Course.`;
+      const paymentType = document.getElementById("paymentType").value.trim();
+      const message = `Hi, I am ${name}, Email: ${email}, Phone: ${phone}, Payment Type: ${paymentType}. I have submitted my details and payment for Investor Fouji Course.`;
       const encodedMsg = encodeURIComponent(message);
       const whatsappURL = `https://wa.me/919549506570?text=${encodedMsg}`;
       window.open(whatsappURL, '_blank');
